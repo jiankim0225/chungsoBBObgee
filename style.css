@@ -1,0 +1,173 @@
+
+/* Custom Variables */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+  --success-gradient: linear-gradient(45deg, #56ab2f 0%, #a8e6cf 100%);
+  --danger-gradient: linear-gradient(45deg, #ff6b6b 0%, #ee5a52 100%);
+}
+
+/* Background */
+body {
+  background: var(--primary-gradient);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card Header Gradient */
+.bg-gradient {
+  background: var(--secondary-gradient) !important;
+}
+
+/* Custom Button Styles */
+.btn-primary {
+  background: var(--secondary-gradient);
+  border: none;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4) !important;
+  background: var(--secondary-gradient);
+  border: none;
+}
+
+.btn-primary:active,
+.btn-primary:focus {
+  background: var(--secondary-gradient) !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3) !important;
+}
+
+/* Number Badge Styles */
+.number-badge {
+  width: 70px;
+  height: 70px;
+  background: var(--danger-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: bold;
+  box-shadow: 0 6px 20px rgba(238, 90, 82, 0.3);
+  animation: bounceIn 0.6s ease-out;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.number-badge::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.number-badge:hover::before {
+  animation: shine 0.5s ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-180deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1) rotate(-90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Card Custom Styles */
+.card {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+.card-header {
+  border-bottom: none !important;
+}
+
+/* SweetAlert2 Custom Styles */
+.swal2-popup {
+  border-radius: 20px !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.swal2-title {
+  color: #333 !important;
+  font-weight: 600 !important;
+}
+
+.swal2-confirm {
+  background: var(--secondary-gradient) !important;
+  border: none !important;
+  border-radius: 25px !important;
+  padding: 12px 30px !important;
+  font-weight: 600 !important;
+}
+
+.swal2-confirm:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .number-badge {
+    width: 60px;
+    height: 60px;
+    font-size: 1.2rem;
+  }
+  
+  .card-body {
+    padding: 2rem !important;
+  }
+  
+  .display-6 {
+    font-size: 1.8rem !important;
+  }
+}
+
+/* Loading Animation */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
